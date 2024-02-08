@@ -1,62 +1,47 @@
-enum Role {ADMIN, read_only, author};
-
-const person = 
-{
-// //     name: string;
-// //     age: number;
-// // } = {
-    name: 'Andrzej',
-    age: 31,
-    hobbies: ['Sports', 'Cooking'],
-    role: [2, 'driver'],
-    profile: Role.ADMIN
-};
-
-person.role.push('admin');
-//person.role.push = (10, 'dadmin');
-
-let activities : string[];
-activities = ['Drinking']
-
-console.log(person.name); 
-
-for (const hobby of person.hobbies) {
-    console.log(hobby.toLowerCase());
+function add2(n1: number, n2: number){
+    return n1 + n2;
 }
 
-for (const roles of person.role) {
-    console.log(roles);
+function printResult2(num: number): void {
+    console.log('Result ' + num);
 }
 
-//console.log(person.profile.toString());
+printResult2(add2(5, 12));
 
-// Type Alias you can declare new type
-type AnyNameCombinable = number | string;
-type LiteralAsTextorNumber = 'as-number' | 'as-text';
+//let someValue: undefined;
 
-// use Union Type and literal
-function combine(
-    n1: AnyNameCombinable, 
-    n2: AnyNameCombinable, 
-    resultConv: LiteralAsTextorNumber) {
-    let result;
-    if (typeof n1 === 'number' && typeof n1 === 'number' || resultConv === 'as-number' ) {
-        result = +n1 + +n2;
-    } else {
-        result = n1.toString() + ' and ' + n2.toString();
-    }
-    if (resultConv === 'as-number') {
-        return +result;
-    } else {
-        return result.toString();
-    }
+
+//defining function type
+let combineValues: (a1: number, b1: number) => number;
+
+combineValues = add2;
+
+console.log(combineValues(8, 9));
+
+//void
+function addAndHandle(n1: number, n2: number, cb: (num: number) => void) {
+    const result = n1 + n2;
+    cb(result);
 }
 
-const combineAge = combine(30, 23, 'as-number');
-console.log(combineAge);
+addAndHandle(10, 20, (result) => {
+    console.log(result)
+})
 
-const combineStringAge = combine('30', '23', 'as-number');
-console.log(combineStringAge);
+let userInput: unknown;
+let userName: string;
 
-const combineName = combine('Max', 'Anna', 'as-text');
-console.log(combineName);
+userInput = 4;
+userInput = 'Max';
+
+if (typeof userInput === 'string') {
+    userName = userInput;
+}
+
+
+//Never return type, different from void, because it will never return
+function generateError(message: string, code: number): never {
+    throw {message: message, errorCode: code};
+}
+
+generateError('An error occured', 500);
