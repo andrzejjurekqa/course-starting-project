@@ -117,7 +117,6 @@
       //"node_modules" - would be a default
     //,
     //if we set it up, all the files have to be included
-    "include":[
-      "app.ts"
-    ]
+    // "include":[
+    // ]
   }

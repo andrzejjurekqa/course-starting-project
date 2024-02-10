@@ -1,49 +1,48 @@
-//Object oriented programming - real-life entities objects
-//productlist - object - could have everything to manage it
-
-//objects are concrete things to store data, methods
-//classes are blueprints for objects, how they should look like
-
-
-class Department {
-    //name: string;
-    private employees: string[] = [];
-    //private id: string;
-
-    constructor(private readonly id: string, public name: string) {
-        // this.name = n;
-        // this.id =  m;
-    }
-    describe(this: Department) {
-        console.log('Department ' + this.id.toString() + ' ' + this.name.toString());
-    }
-    addEmployee(employee: string) {
-        this.employees.push(employee);
-    }
-    printEmpInfo() {
-        console.log(this.employees.length);
-        console.log(this.employees);
-    }
+interface Greetable {
+    name: string;
+    age: number;
+    greet(phrase: string): void;
 }
 
-const accounting = new Department('1', 'Accounting');
-accounting.addEmployee('Andrzej');
-accounting.addEmployee('Daniel');
+interface Goodbyeable {
+    name: string;
+    age: number;
+    goodbye(phrase: string): void;
+}
 
-const finances  = new Department('2', 'Finances')
-finances.addEmployee('Dominik');
-finances.addEmployee('Sabathiel');
+class Person implements Greetable, Goodbyeable {
+    name: string;
+    age: number;
+    ditchAmount: string[];
+    constructor(n: string, m: number, d: string[]) {
+        this.name = n;
+        this.age = m;
+        this.ditchAmount = d;
+    }
+    greet(phrase: string) {
+        if (this.age > 25){
+            console.log(phrase + ' old bitch')
+        } else {
+            console.log(phrase + ' ' + this.name);
+        }
+    }
+    goodbye(phrase: string) {
+        if (this.age > 25){
+            console.log(phrase + ' old bitch')
+        } else {
+            console.log(phrase + ' ' + this.name);
+        }
+    }
+    printDitches(ditchAmount: string[] = ['Monica', 'Jessica'])  {
+        for (var val of ditchAmount) {
+            console.log(val)
+        }
+    }
+};
 
-accounting.describe();
-accounting.printEmpInfo();
-finances.describe();
-finances.printEmpInfo();
-// pointing at method
-// const accountingCopy = { name: 'Finances', describe: accounting.describe};
+//let user1: Greetable;
+let user1 = new Person('Dandrzej', 334, ['Monica', 'Jessica']);
 
-// accountingCopy.describe();
-
-
-//Private and Public Access modifiers
-//Private means that the property can be accessed from inside class
-//  accounting.employees[2] = 'Anna';
+user1.greet('Whaddaup');
+user1.goodbye('Cya');
+user1.printDitches();
