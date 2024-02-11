@@ -45,7 +45,7 @@ class Hr extends Department {
 
     get mostRecentReport() {
         if (this.lastReport) {
-        return this.lastReport;
+            return this.lastReport;
         }
         throw new Error('No report');
     }
