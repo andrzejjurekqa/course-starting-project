@@ -114,11 +114,11 @@
     "exclude": [
       "**/*/decorators.ts",
       //"**/*.dev.ts",
-      "node_modules"
-    ],
+        ],
     //if we set it up, all the files have to be included
     "include":[
       "app.ts",
-      "node_modules/@playwright/"
+      "node_modules/@playwright/",
+      "node_modules/@playwright/*"
      ]
   }
