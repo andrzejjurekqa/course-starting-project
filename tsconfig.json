@@ -112,13 +112,13 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
     "exclude": [
-      "**/*/decorators.ts"
+      "**/*/decorators.ts",
       //"**/*.dev.ts",
-      //"node_modules" - would be a default
+      "node_modules"
     ],
     //if we set it up, all the files have to be included
     "include":[
       "app.ts",
-      "[/node_modules\/@playwright/]"
+      "node_modules/@playwright/"
      ]
   }
