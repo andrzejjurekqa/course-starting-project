@@ -118,6 +118,7 @@
     ],
     //if we set it up, all the files have to be included
     "include":[
-      "app.ts"
+      "app.ts",
+      "[/node_modules\/@playwright/]"
      ]
   }
