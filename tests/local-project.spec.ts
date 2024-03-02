@@ -8,8 +8,8 @@ test('Go to project', async ({ page }) => {
     await page.getByRole('button').click();
 
     await expect(page.locator('#active-projects-list')).toContainText('New Project');
-
+    await page.getByRole('heading', { name: 'New Project' }).dragTo(page.locator('#finished-projects-list'))
     await expect(page.locator('#finished-projects-list')).toContainText('New Project');
-
+    await page.getByRole('heading', { name: 'New Project' }).dragTo(page.locator('#active-projects-list'))
     await expect(page.locator('#active-projects-list')).toContainText('New Project');
 });
