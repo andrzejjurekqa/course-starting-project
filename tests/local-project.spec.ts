@@ -14,7 +14,7 @@ test('Go and drag and drop', async ({ page }) => {
     await expect(page.locator('#active-projects-list')).toContainText('New Project');
 });
 
-test.only('Go and do some bugs', async ({ page }) => {
+test('Go and do some bugs', async ({ page }) => {
     await page.goto('http://localhost:3000');
     await page.getByRole('button').click();
     await page.on('dialog', async dialog => {
